@@ -49,6 +49,18 @@ services:
     depends_on:
       - elasticsearch
 
+  elastalert:
+    image: bitsensor/elastalert:latest
+    volumes:
+      - ./elastalert/config/config.yaml:/opt/elastalert/config.yaml
+      - ./elastalert/rules:/opt/elastalert/rules
+    ports:
+      - "3030:3030"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
 networks:
 
   elk:

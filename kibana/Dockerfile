@@ -1,4 +1,5 @@
 ARG ELK_VERSION
+ARG ELK_ALERT_VERSION
 
 # https://github.com/elastic/kibana-docker
 FROM docker.elastic.co/kibana/kibana-oss:${ELK_VERSION}

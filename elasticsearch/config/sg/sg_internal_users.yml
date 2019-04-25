@@ -43,3 +43,8 @@ elastalert:
   roles:
     - elastalert
     - readall
+#password is: heartbeat
+heartbeat:
+  hash: $2y$12$9hhc9Gy6ZirCfRnDC2npqOQmhJ4KaiXrEbUzgzvjdxPt.NV0XiYV.
+  roles:
+    - heartbeat

@@ -19,6 +19,10 @@ sg_kibana_user:
   backendroles:
     - kibanauser
 
+sg_elastalert:
+  backendroles:
+    - elastalert
+
 sg_readall:
   readonly: true
   backendroles:

@@ -191,12 +191,23 @@ sg_xp_machine_learning:
 
 sg_elastalert:
   cluster:
+    - CLUSTER_MONITOR
     - CLUSTER_COMPOSITE_OPS_RO
     - "indices:data/write/bulk"
   indices:
     '*':
       '*':
         - READ
-    'elastalert_status':
+    'elastalert_status*':
       '*':
         - '*'
+
+sg_heartbeat:
+  cluster:
+    - CLUSTER_MONITOR
+    - CLUSTER_COMPOSITE_OPS_RO
+    - "indices:data/write/bulk"
+  indices:
+    'heartbeat*':
+      '*':
+        - WRITE

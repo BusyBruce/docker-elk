@@ -11,3 +11,6 @@ RUN kibana-plugin install https://repo1.maven.org/maven2/com/floragunn/search-gu
 
 # Add your kibana plugins setup here
 # Example: RUN kibana-plugin install <name|url>
+ARG ELK_VERSION
+ARG ELASTALERT_PLUGIN_VERSION
+RUN kibana-plugin install https://github.com/bitsensor/elastalert-kibana-plugin/releases/download/${ELASTALERT_PLUGIN_VERSION}/elastalert-kibana-plugin-${ELASTALERT_PLUGIN_VERSION}-${ELK_VERSION}.zip

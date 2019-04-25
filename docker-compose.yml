@@ -45,10 +45,24 @@ services:
         ELK_VERSION: $ELK_VERSION
         ELK_FLAVOUR: $ELK_FLAVOUR
         SG_VERSION_KIBANA: $SG_VERSION_KIBANA
+        ELASTALERT_PLUGIN_VERSION: $ELASTALERT_PLUGIN_VERSION
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
       - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  elastalert:
+    image: bitsensor/elastalert:latest
+    volumes:
+      - ./elastalert/config/config.yaml:/opt/elastalert/config.yaml
+      - ./elastalert/config/smtp_auth_file.yaml:/opt/elastalert/smtp_auth_file.yaml
+      - ./elastalert/rules:/opt/elastalert/rules
+    ports:
+      - "3030:3030"
     networks:
       - elk
     depends_on:

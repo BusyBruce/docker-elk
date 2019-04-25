@@ -53,6 +53,7 @@ services:
     image: bitsensor/elastalert:latest
     volumes:
       - ./elastalert/config/config.yaml:/opt/elastalert/config.yaml
+      - ./elastalert/config/smtp_auth_file.yaml:/opt/elastalert/smtp_auth_file.yaml
       - ./elastalert/rules:/opt/elastalert/rules
     ports:
       - "3030:3030"

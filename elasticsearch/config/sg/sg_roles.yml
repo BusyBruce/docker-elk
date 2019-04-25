@@ -188,3 +188,15 @@ sg_xp_machine_learning:
     '?ml-*':
       '*':
         - "*"
+
+sg_elastalert:
+  cluster:
+    - CLUSTER_COMPOSITE_OPS_RO
+    - "indices:data/write/bulk"
+  indices:
+    '*':
+      '*':
+        - READ
+    'elastalert_status':
+      '*':
+        - '*'
